@@ -1,0 +1,3 @@
+https://vuesome.dev/articles/add-testing-to-vite/
+
+https://markus.oberlehner.net/blog/using-testing-library-jest-dom-with-vitest/
