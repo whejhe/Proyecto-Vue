@@ -1,0 +1,6 @@
+npm run build (Compila el proyecto para que el navegar lo entienda)
+
+https://www.netlify.com/
+https://ide.goorm.io/
+
+ Desde carpeta dist:

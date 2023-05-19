@@ -1,0 +1,45 @@
+
+
+- `v-model`: permite enlazar datos de entrada de usuario a una propiedad de datos de Vue.
+- `v-bind`o ':' permite enlazar dinámicamente atributos HTML a propiedades de datos de Vue.
+- `v-if`: permite renderizar condicionalmente elementos HTML basados en una expresión booleana.
+- `v-else-if`: permite renderizar condicionalmente elementos HTML adicionales basados en una expresión booleana adicional.
+- `v-else`: permite renderizar condicionalmente elementos HTML adicionales cuando todas las expresiones booleanas anteriores son falsas.
+- `v-for`: permite iterar sobre elementos de una matriz o un objeto y renderizar elementos HTML repetidamente.
+- `v-on` o '@': permite agregar escuchadores de eventos a elementos HTML para ejecutar métodos de Vue cuando se produce un evento específico.
+- `v-show`: permite alternar la visibilidad de elementos HTML basados en una expresión booleana.
+- `v-text`: renderiza texto plano dinámicamente en un elemento HTML.
+- `v-pre`: indica a Vue que no debe compilar o interpretar el contenido de un elemento, lo que puede mejorar el rendimiento en ciertos casos.
+- `v-cloak`: se usa junto con el atributo `display:none` para ocultar temporalmente el contenido de un elemento mientras Vue lo está compilando.
+- `v-html`: permite renderizar HTML dinámicamente en un elemento.
+- `v-slot`: se utiliza en componentes de Vue para definir ranuras de contenido que pueden ser reemplazadas por el contenido del componente padre.
+- `v-is`: se utiliza en componentes dinámicos para especificar qué componente se debe renderizar en función de una expresión dinámica.
+- `v-bind:key`: se utiliza en iteraciones de elementos en un arreglo o un objeto para proporcionar una clave única a cada elemento, lo que ayuda a Vue a optimizar el rendimiento al actualizar la lista.
+- `v-bind:style`: permite enlazar estilos CSS dinámicamente a un elemento HTML.
+- `v-bind:class`: permite enlazar clases CSS dinámicamente a un elemento HTML.
+- `v-bind:props`: se utiliza en componentes para pasar datos de un componente padre a un componente hijo como propiedades.
+- `v-bind:ref`: permite referenciar un elemento HTML desde un componente de Vue, lo que puede ser útil para manipular el DOM directamente en algunas situaciones.
+- `v-bind:disabled`: permite desactivar un elemento HTML dinámicamente en función de una expresión booleana.
+- `v-bind:href`: permite enlazar la propiedad `href` de un elemento `a` dinámicamente a una URL o a una ruta definida en el enrutador de Vue.
+- `v-bind:title`: permite enlazar dinámicamente la propiedad `title` de un elemento HTML.
+- `v-bind:src`: permite enlazar dinámicamente la propiedad `src` de un elemento `img` o `iframe`.
+- `v-on:keydown`: se utiliza para agregar un escuchador de eventos de pulsación de tecla en un elemento HTML.
+- `v-on:submit`: se utiliza para agregar un escuchador de eventos de envío de formulario en un elemento HTML.
+- `v-on:click-outside`: se utiliza para agregar un escuchador de eventos de clic fuera de un elemento HTML.
+- `v-model:lazy`: permite que un componente de entrada de usuario se actualice después de que se detiene la entrada del usuario.
+- `v-model:trim`: elimina los espacios en blanco de los extremos de una cadena de entrada de usuario.
+- `v-model:number`: convierte la entrada de usuario en un número.
+- `v-on:before-enter`: se utiliza en la animación de transición CSS para especificar un método de Vue que se debe ejecutar antes de que se inicie la animación de entrada.
+- `v-on:enter`: se utiliza en la animación de transición CSS para especificar un método de Vue que se debe ejecutar cuando comienza la animación de entrada.
+- `v-on:leave`: se utiliza en la animación de transición CSS para especificar un método de Vue que se debe ejecutar cuando comienza la animación de salida.
+- `v-on:after-leave`: se utiliza en la animación de transición CSS para especificar un método de Vue que se debe ejecutar después de que termine la animación de salida.
+- `v-on:blur`: se utiliza para agregar un escuchador de eventos de enfoque en un elemento HTML, para ejecutar un método de Vue cuando el elemento pierde el enfoque.
+- `v-on:focus`: se utiliza para agregar un escuchador de eventos de enfoque en un elemento HTML, para ejecutar un método de Vue cuando el elemento obtiene el enfoque.
+- `v-on:mousemove`: se utiliza para agregar un escuchador de eventos de movimiento del mouse en un elemento HTML, para ejecutar un método de Vue cuando se mueve el mouse.
+- `v-on:mouseleave`: se utiliza para agregar un escuchador de eventos de salida del mouse en un elemento HTML, para ejecutar un método de Vue cuando el mouse sale del elemento.
+- `v-on:mouseenter`: se utiliza para agregar un escuchador de eventos de entrada del mouse en un elemento HTML, para ejecutar un método de Vue cuando el mouse entra en el elemento.
+- `v-on:touchstart`: se utiliza para agregar un escuchador de eventos de inicio de toque en un elemento HTML, para ejecutar un método de Vue cuando se inicia un toque en un dispositivo táctil.
+- `v-on:touchmove`: se utiliza para agregar un escuchador de eventos de movimiento de toque en un elemento HTML, para ejecutar un método de Vue cuando se mueve un toque en un dispositivo táctil.
+- `v-on:touchend`: se utiliza para agregar un escuchador de eventos de finalización de toque en un elemento HTML, para ejecutar un método de Vue cuando se finaliza un toque en un dispositivo táctil.
+- `v-on:touchcancel`: se utiliza para agregar un escuchador de eventos de cancelación de toque en un elemento HTML, para ejecutar un método de Vue cuando se cancela un toque en un dispositivo táctil.
+

@@ -1,0 +1,1 @@
+export {default as grupComponent} from  './grupComponent.vue';

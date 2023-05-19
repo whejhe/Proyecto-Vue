@@ -1,0 +1,88 @@
+npm install --save axios vue-axios
+
+En main.js:
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import router from './router'
+
+createApp(App).use(router).use(VueAxios,axios).mount('#app')
+
+------------------------------------------------------------------------
+Instalamos vue-Router:
+npm i vue-router@next
+-----------------------------------------------------------------
+Añadimos las rutas:
+src/router/index.js
+en esta ruta:
+import {createWebHistory,createRouter} from 'vue-router'
+import Estudiantes from '../views/Estudiantes.vue'
+import Login from '../views/Login.vue'
+const routes =[
+    {
+        path:'Login',
+        name:'Login',
+        component:Login
+    },
+    {
+        path:'Estudiantes',
+        name:'Estudiantes',
+        component:Estudiantes
+    },
+];
+
+const router = createRouter({
+    history:createWebHistory(),
+    routes
+})
+
+export default router;
+
+-----------------------------------------------------------------------
+
+
+Añadimos ruta:
+src/views/Login.vue
+<template>
+    <div>Login</div>
+</template>
+
+<script>
+    export default
+    {
+        name:'Login'
+    }
+</script>
+-----------------------------------------------------------------------------
+Añadimos ruta:
+src/views/Estudiantes.vue
+<template>
+    <div>Estudiantes</div>
+</template>
+
+<script>
+    export default{
+        name:'Estudiantes'
+    }
+</script>
+------------------------------------------------------------------
+en App.vue:
+<template>
+  <nav>
+    <div class="nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+        <li><router-link to="/Estudiantes">Login</router-link></li>
+        <li><router-link to="{name:'Login'}">Login</router-link></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+export default{
+  name:'App'
+}
+</script>

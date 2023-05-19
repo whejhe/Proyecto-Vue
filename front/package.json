@@ -1,0 +1,36 @@
+{
+  "name": "vue-project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vite preview --host",
+    "build": "vite build",
+    "dev": "vite --port 4000",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/font": "5.9.55",
+    "@vue/reactivity": "^3.2.47",
+    "@vue/runtime-core": "^3.2.47",
+    "@vue/shared": "^3.2.47",
+    "axios": "^1.3.5",
+    "babel": "^6.23.0",
+    "pinia": "^2.0.34",
+    "roboto-fontface": "*",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "vue": "^3.2.47",
+    "vue-axios": "^3.5.2",
+    "vue-router": "^4.0.13",
+    "vue3-toastify": "^0.1.8",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.4",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-vuetify": "~2.5.8"
+  }
+}

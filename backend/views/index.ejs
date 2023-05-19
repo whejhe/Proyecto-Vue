@@ -1,0 +1,35 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <h1>Pagina de inicio</h1>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <l1><a href="./registro.html">Registro</a></l1>
+            <l1><a href="./login.html">Login</a></l1>
+        </ul>
+    </nav>
+    <% if (user) { %>
+        <p>Bienvenido, <%= user.username %>!</p>
+        <form action="/logout" method="POST">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    <% } else { %>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Usuario o correo electrónico">
+            <input type="password" name="password" placeholder="Contraseña">
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    <% } %>
+</body>
+
+</html> -->

@@ -1,0 +1,42 @@
+Enlace: https://www.youtube.com/watch?v=oAj-zu3qeiE&list=PLYAyQauAPx8l7G8lTbSv23UTAwbVORY1r&index=30
+
+Login.vue:
+<template>
+    <div class="row">
+        <div class="col m12 card-panel">
+            <form @submit.prevent="iniciarSesion()">
+                <div class="row">
+                    <div class="col m3">
+                        <label for="">Usuario</label>
+                        <input type="text" v-model="usuario">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m3">
+                        <label for="">Contraseña</label>
+                        <input type="text" v-model="clave">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m3">
+                        <button type="submit" class="btn">INICIAR SESION<i class="material-icons right">security</i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
+
+<script>
+export default
+    {
+        name: 'Login',
+        data() {
+            return {
+                usuario: '',
+                clave: ''
+            }
+        }
+    }
+</script>
+-------------------------------------------------------------------------

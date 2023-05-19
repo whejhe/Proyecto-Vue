@@ -1,0 +1,79 @@
+<script setup>
+import { ref, computed } from 'vue'
+const name = "Vue dinamico";
+
+const counter = ref(0);
+const arrayFavoritos = ref([])
+
+const increment = () => {
+  counter.value++;
+};
+
+const decrement = () => {
+  counter.value--;
+};
+
+const reset = () => {
+  counter.value = 0;
+}
+
+const bloquearBtAdd = computed(() => {
+  const numSearch = arrayFavoritos.value.find(num => num === counter.value);
+  if (numSearch === 0) return true
+  return numSearch ? true : false;
+});
+
+const classCounter = computed(() => {
+  if (counter.value === 0) {
+    return 'zero'
+  }
+  if (counter.value > 0) {
+    return 'positive'
+  }
+  if (counter.value < 0) {
+    return 'negative'
+  }
+})
+
+const add = () => {
+  arrayFavoritos.value.push(counter.value)
+}
+</script>
+
+<template>
+  <div class="container text-center mt-10">
+    <h1>Hola {{ name.toUpperCase() }}</h1>
+    <h2 :class="classCounter">{{ counter }}</h2>
+    <div class="btn-group">
+      <button @click="increment" class="btn btn-success">Aumentar</button>
+    <button v-on:click="decrement" class="btn btn-danger">Decrementar</button>
+    <button v-on:click="reset" class="btn btn-secondary">Reset</button>
+    <button v-on:click="add" :disabled="bloquearBtAdd" class="btn btn-primary">Añadir a la Lista</button>
+    
+    </div>
+    <br>
+    {{ arrayFavoritos }}
+    <ul class="list-group">
+      <li class="list-group-item" v-for="(num, index) in arrayFavoritos" :key="index">
+        {{ num }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<style>
+h2 {
+  color: black;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.zero {
+  color: black;
+}</style>

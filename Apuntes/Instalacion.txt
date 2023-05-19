@@ -1,0 +1,30 @@
+Enlaces:https://www.youtube.com/watch?v=PL-aTHv2L3E&list=PLPl81lqbj-4J-gfAERGDCdOQtVgRhSvIT (Curso Vuejs 3)
+        https://www.youtube.com/watch?v=WH1UrK_s_Ew&t=1s (Curso Vuetify)
+        https://www.youtube.com/watch?v=je1r0Qaz0Gs&list=PLYAyQauAPx8l7G8lTbSv23UTAwbVORY1r (Curso Vuejs 3)
+
+Paginas:
+        https://vuetifyjs.com/en/
+
+
+Instalacion Vue js 3
+npm init vue@latest
+cd vue-project
+npm install
+npm install -g @vue/cli
+vue add vuetify (proyectos nuevos) Opcion: "vuetify 3 vite"
+
+npm i vue-axios
+npm install @http/auth
+
+npm run dev
+
+Añadir complemento Vue.js devtools a complementos del navegador
+Añadir extensiones visual Studio:
+    Vue Language Features (Volar)
+    Vue 3 Snippets
+
+Con "npm install" podemos añadir todas las dependencias en caso de no tenerlas.
+
+
+Para errores globales en Vuetify:
+npm install @vue/runtime-core @vue/reactivity @vue/shared

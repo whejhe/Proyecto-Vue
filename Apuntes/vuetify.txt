@@ -1,0 +1,2 @@
+Entrar desde consola en:
+vue ui

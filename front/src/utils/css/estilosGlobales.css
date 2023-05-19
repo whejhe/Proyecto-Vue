@@ -1,0 +1,128 @@
+
+/* Estilos generales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: #ffffff;
+    box-shadow: #001F03 0px 0px 10px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+}
+
+p {
+    font-family: monospace;
+    padding: 5px 20px;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    padding-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #032916;
+    padding: 10px 60px;
+}
+
+a:hover {
+    color: white;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #032916;
+}
+
+/* Estilos para la barra de navegación */
+
+.v-toolbar {
+    background-color: #001F03;
+    color:#001F03;
+}
+
+.v-toolbar-title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+/* Estilos para los botones */
+
+.btn-registroLogin{
+    background-color: #001F03;
+}
+.v-btn {
+    color: #ffffff;
+}
+
+.v-btn:hover {
+    background-color: #178d58;
+}
+
+/* Estilos para las tarjetas */
+
+.v-card {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.v-card__title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.v-card__subtitle {
+    font-size: 12px;
+    color: #757575;
+}
+
+.v-card__text {
+    font-size: 14px;
+}
+
+/* Estilos para los formularios */
+
+.v-form {
+    margin: 24px;
+    margin-top: 100px;
+}
+
+.v-text-field {
+    width: 100%;
+}
+
+.v-select {
+    width: 100%;
+}
+
+.v-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.v-container {
+    background-color: rgb(50, 50, 50);
+}
+.v-sheet {
+    background-color: rgb(202, 198, 198);
+    min-height: 240px;
+    max-height: 280px;
+}
+
+.div{
+    padding-top: 150px;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(213, 223, 218);
+}

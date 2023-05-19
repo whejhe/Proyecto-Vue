@@ -1,0 +1,46 @@
+https://youtu.be/lZJ1mar_znk
+
+Instalacion de JEST:
+npm install --save-dev jest
+npm i -D jest supertest
+
+" Tipo testeo TDD"
+
+Añadir a 'package.json'
+{
+    "Script":{
+        "test": "jest"
+    }
+}
+
+creamos una estructura de carpetas con __test__ igual a la de nuestro
+proyecto para facilitar la busqueda
+
+Crea un archivo en la misma carpeta que el que quieras probar con el
+nombre tuarchivo.test.js 
+
+Métodos comunes de comparación:
+
+    .toBe() => usa Object.is para probar la igualdad exacta.
+    .toEqual() => comprueba recursivamente cada campo de un objeto o array.
+    .toBeNull => solo coincide con nulo
+    .toBeUndefined => coincide solo con undefined
+    .toBeDefined => es lo opuesto a toBeUndefined
+    .toBeTruthy => coincide con cualquier cosa que una declaración if trate como verdadera
+    .toBeFalsy => coincide con cualquier cosa que una declaración if trate como falsa
+
+Comparaciones numéricas
+
+    .toBeGreaterThan() => mayor que
+    .toBeGreaterThanOrEqual() => mayor o igual que
+    .toBeLessThan() => menor que
+    .toBeLessThanOrEqual() => menor o igual que
+
+Comparar cadenas de texto
+
+    .toMatch() => compara el string con un expresión regular
+    .not.toMatch() => compara el string con una expresión regular que NO debe estar en el texto
+
+Iterables
+
+    .toContain() => chequea si un array u objeto, contiene un item particular

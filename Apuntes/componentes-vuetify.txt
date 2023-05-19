@@ -1,0 +1,242 @@
+
+
+1. `v-app`: Contenedor principal de la aplicación. 
+Todos los demás componentes de Vuetify deben estar contenidos dentro de este componente.
+
+2. `v-container`: Es un contenedor de ancho fijo que ayuda a controlar el ancho del contenido dentro de él. 
+Se utiliza para crear secciones de contenido dentro de la aplicación.
+
+3. `v-btn`: Es un botón que se puede personalizar con diferentes colores, tamaños y estilos. 
+Se utiliza para activar acciones en la aplicación.
+
+4. `v-card`: Es un componente que se utiliza para mostrar contenido en un contenedor rectangular. 
+Se puede personalizar con diferentes colores y estilos.
+
+5. `v-dialog`: Es un componente que muestra una ventana emergente en la aplicación. 
+Se utiliza para mostrar información adicional o para solicitar la entrada del usuario.
+
+6. `v-form`: Es un componente que se utiliza para manejar formularios en la aplicación. 
+Proporciona validación de entrada y maneja el estado del formulario.
+
+7. `v-list`: Es un componente que se utiliza para mostrar una lista de elementos. 
+Puede contener diferentes tipos de elementos, como texto, imágenes o iconos.
+
+8. `v-navigation-drawer`: Es un componente que se utiliza para mostrar un cajón de navegación en la aplicación. 
+Se utiliza para mostrar enlaces importantes o para proporcionar opciones de navegación.
+
+9. `v-pagination`: Es un componente que se utiliza para paginar el contenido. 
+Se utiliza para dividir el contenido en páginas y permitir la navegación entre ellas.
+
+10. `v-select`: Es un componente que se utiliza para crear un menú desplegable de opciones. 
+Se utiliza para seleccionar una opción de una lista de opciones.
+
+11. `v-slider`: Es un componente que se utiliza para seleccionar un valor dentro de un rango de valores.  
+Se utiliza para ajustar valores numéricos como el volumen o el brillo.
+
+12. `v-snackbar`: Es un componente que se utiliza para mostrar mensajes en la aplicación. 
+Se utiliza para mostrar confirmaciones, errores u otra información importante.
+
+13. `v-tabs`: Es un componente que se utiliza para mostrar pestañas en la aplicación. 
+Se utiliza para organizar el contenido en diferentes secciones.
+
+14. `v-text-field`: Es un componente que se utiliza para capturar la entrada de texto del usuario. 
+Se utiliza para capturar información como nombres de usuario, contraseñas o direcciones de correo electrónico.
+
+15. `v-toolbar`: Es un componente que se utiliza para mostrar una barra de herramientas en la aplicación. 
+Se utiliza para mostrar enlaces importantes o para proporcionar opciones de navegación.
+
+16. `v-tooltip`: Es un componente que se utiliza para mostrar información adicional cuando se mueve el cursor sobre un elemento. 
+Se utiliza para proporcionar información adicional o para aclarar el significado de un elemento.
+
+17. `v-img`: Es un componente que se utiliza para mostrar imágenes en la aplicación. 
+Se puede personalizar con diferentes tamaños y estilos.
+
+18. `v-progress-circular`: Es un componente que se utiliza para mostrar un indicador de progreso circular en la aplicación. 
+Se utiliza para indicar que una tarea está en progreso.
+
+19. `v-calendar`: Es un componente que se utiliza para mostrar un calendario en la aplicación. 
+Se utiliza para mostrar fechas importantes o para proporcionar una vista de calendario a los usuarios.
+
+20. `v-autocomplete`: Es un componente que se utiliza para crear un campo de autocompletado en la aplicación. 
+Se utiliza para buscar opciones en una lista de opciones.
+
+21. `v-checkbox`: Es un componente que se utiliza para crear una casilla de verificación en la aplicación. 
+Se utiliza para seleccionar una o varias opciones de una lista de opciones.
+
+22. `v-data-table`: Es un componente que se utiliza para mostrar datos en una tabla en la aplicación. 
+Se puede personalizar con diferentes opciones de paginación, ordenamiento y búsqueda.
+
+23. `v-menu`: Es un componente que se utiliza para mostrar un menú desplegable en la aplicación. 
+Puede contener diferentes tipos de elementos, como texto, imágenes o iconos.
+
+24. `v-radio`: Es un componente que se utiliza para crear un botón de radio en la aplicación. 
+Se utiliza para seleccionar una opción de una lista de opciones.
+
+25. `v-range-slider`: Es un componente que se utiliza para seleccionar un rango de valores. 
+Se utiliza para ajustar valores numéricos como el rango de precios o el rango de fechas.
+
+26. `v-rating`: Es un componente que se utiliza para mostrar una calificación en la aplicación. 
+Se utiliza para clasificar el contenido o para mostrar la satisfacción del usuario.
+
+27. `v-sheet`: Es un componente que se utiliza para mostrar contenido en una hoja en la aplicación. 
+Se puede personalizar con diferentes estilos y paletas de colores.
+
+28. `v-time-picker`: Es un componente que se utiliza para seleccionar una hora en la aplicación. 
+Se utiliza para capturar la hora de un evento o una tarea.
+
+29. `v-alert`: Es un componente que se utiliza para mostrar un mensaje de alerta en la aplicación. 
+Se utiliza para notificar al usuario sobre eventos importantes o errores.
+
+30. `v-avatar`: Es un componente que se utiliza para mostrar una imagen de perfil en la aplicación. 
+Se puede personalizar con diferentes tamaños y formas.
+
+31. `v-badge`: Es un componente que se utiliza para mostrar un número o una etiqueta en la aplicación. 
+Se utiliza para indicar la cantidad de elementos o para etiquetar elementos.
+
+32. `v-bottom-nav`: Es un componente que se utiliza para mostrar un menú de navegación en la parte inferior de la aplicación. 
+Se utiliza para proporcionar opciones de navegación adicionales.
+
+33. `v-carousel`: Es un componente que se utiliza para mostrar una galería de imágenes en la aplicación. 
+Se puede personalizar con diferentes opciones de paginación y transición.
+
+34. `v-chip`: Es un componente que se utiliza para mostrar una etiqueta o una selección en la aplicación. 
+Se utiliza para mostrar información adicional o para eliminar elementos de una lista.
+
+35. `v-file-input`: Es un componente que se utiliza para capturar archivos en la aplicación. 
+Se utiliza para subir archivos como imágenes o documentos.
+
+36. `v-sheet`: Es un componente que se utiliza para mostrar contenido en una hoja en la aplicación. 
+Se puede personalizar con diferentes estilos y paletas de colores.
+
+37. `v-tooltip`: Es un componente que se utiliza para mostrar información adicional cuando se mueve el cursor sobre un elemento. 
+Se utiliza para proporcionar información adicional o para aclarar el significado de un elemento.
+
+38. `v-window`: Es un componente que se utiliza para mostrar múltiples elementos en una ventana en la aplicación. 
+Se utiliza para crear una vista de pestañas o para mostrar elementos en una lista.
+
+39. `v-avatar`: Este componente se utiliza para mostrar una imagen de perfil en la aplicación. 
+Se puede personalizar con diferentes tamaños y formas.
+
+40. `v-banner`: Este componente se utiliza para mostrar un banner en la aplicación. 
+Se utiliza para mostrar mensajes importantes o promociones.
+
+41. `v-breadcrumbs`: Este componente se utiliza para mostrar una ruta de navegación en la aplicación. 
+Se utiliza para mostrar la ubicación actual del usuario en la aplicación.
+
+42. `v-btn`: Este componente se utiliza para crear un botón en la aplicación. 
+Se puede personalizar con diferentes tamaños, colores y estilos.
+
+43. `v-card`: Este componente se utiliza para mostrar contenido en una tarjeta en la aplicación. 
+Se puede personalizar con diferentes estilos y paletas de colores.
+
+44. `v-carousel`: Este componente se utiliza para mostrar una galería de imágenes en la aplicación. 
+Se puede personalizar con diferentes opciones de paginación y transición.
+
+45. `v-checkbox`: Este componente se utiliza para crear una casilla de verificación en la aplicación. 
+Se utiliza para seleccionar una o varias opciones de una lista de opciones.
+
+46. `v-chip`: Este componente se utiliza para mostrar una etiqueta o una selección en la aplicación. 
+Se utiliza para mostrar información adicional o para eliminar elementos de una lista.
+
+47. `v-data-iterator`: Este componente se utiliza para mostrar datos en una tabla en la aplicación. 
+Se puede personalizar con diferentes opciones de paginación, ordenamiento y búsqueda.
+
+48. `v-date-picker`: Este componente se utiliza para seleccionar una fecha en la aplicación. 
+Se utiliza para capturar la fecha de un evento o una tarea.
+
+49. `v-dialog`: Este componente se utiliza para mostrar un cuadro de diálogo en la aplicación. 
+Se utiliza para solicitar información o para mostrar mensajes importantes.
+
+50. `v-divider`: Este componente se utiliza para crear una línea divisoria en la aplicación. 
+Se utiliza para separar elementos o secciones de la interfaz.
+
+51. `v-expansion-panel`: Este componente se utiliza para mostrar un panel de expansión en la aplicación. 
+Se utiliza para mostrar contenido adicional al usuario.
+
+52. `v-fab`: Este componente se utiliza para crear un botón flotante en la aplicación. 
+Se utiliza para proporcionar acceso rápido a una acción o función.
+
+53. `v-file-input`: Este componente se utiliza para capturar archivos en la aplicación. 
+Se utiliza para subir archivos como imágenes o documentos.
+
+54. `v-footer`: Este componente se utiliza para mostrar un pie de página en la aplicación. 
+Se utiliza para mostrar información adicional o para proporcionar enlaces importantes.
+
+55. `v-form`: Este componente se utiliza para crear un formulario en la aplicación. 
+Se utiliza para capturar información del usuario.
+
+56. `v-icon`: Este componente se utiliza para mostrar un icono en la aplicación. 
+Se puede personalizar con diferentes tamaños y colores.
+
+57. `v-img`: Este componente se utiliza para mostrar imágenes en la aplicación. 
+Se puede personalizar con diferentes tamaños y estilos.
+
+58. `v-lazy`: Este componente se utiliza para cargar contenido de manera diferida en la aplicación. 
+Se utiliza para optimizar el rendimiento y reducir el tiempo de carga.
+
+59. `v-list`: Este componente se utiliza para mostrar una lista en la aplicación. 
+Se puede personalizar con diferentes opciones de paginación, ordenamiento y búsqueda.
+
+60. `v-menu`: Este componente se utiliza para mostrar un menú desplegable en la aplicación. 
+Puede contener diferentes tipos de elementos, como texto, imágenes o iconos.
+
+61. `v-navigation-drawer`: Este componente se utiliza para mostrar un panel de navegación en la aplicación. 
+Se utiliza para proporcionar opciones de navegación adicionales.
+
+62. `v-pagination`: Este componente se utiliza para mostrar una paginación en la aplicación. 
+Se utiliza para dividir una lista o una tabla en páginas.
+
+63. `v-picker`: Este componente se utiliza para seleccionar una fecha o una hora en la aplicación. 
+Se utiliza para capturar fechas y horas para eventos o tareas.
+
+64. `v-progress-circular`: Este componente se utiliza para mostrar un indicador de progreso circular en la aplicación. 
+Se utiliza para indicar que una tarea está en progreso.
+
+65. `v-progress-linear`: Este componente se utiliza para mostrar una barra de progreso en la aplicación. 
+Se utiliza para indicar el progreso de una tarea.
+
+66. `v-radio`: Este componente se utiliza para crear un botón de radio en la aplicación. 
+Se utiliza para seleccionar una opción de una lista de opciones.
+
+67. `v-range-slider`: Este componente se utiliza para seleccionar un rango de valores. 
+Se utiliza para ajustar un rango de precios o valores en una aplicación.
+
+68. `v-rating`: Este componente se utiliza para mostrar una calificación en la aplicación. 
+Se utiliza para permitir que los usuarios califiquen un producto o servicio.
+
+69. `v-row`: Este componente se utiliza para crear una fila en una disposición de rejilla en la aplicación. 
+Se utiliza para dividir la pantalla en columnas y filas.
+
+70. `v-select`: Este componente se utiliza para crear un menú desplegable en la aplicación. 
+Se utiliza para seleccionar una opción de una lista de opciones.
+
+71. `v-slider`: Este componente se utiliza para seleccionar un valor en la aplicación. 
+Se utiliza para ajustar un valor como el volumen o el brillo.
+
+72. `v-snackbar`: Este componente se utiliza para mostrar un mensaje en la aplicación. 
+Se utiliza para notificar al usuario sobre eventos importantes o errores.
+
+73. `v-spacer`: Este componente se utiliza para crear un espacio en blanco en la aplicación. 
+Se utiliza para separar elementos y mejorar la legibilidad.
+
+74. `v-spinner`: Este componente se utiliza para mostrar un indicador de carga en la aplicación. 
+Se utiliza para indicar que la aplicación está procesando una tarea.
+
+75. `v-stepper`: Este componente se utiliza para mostrar un proceso de varios pasos en la aplicación. 
+Se utiliza para guiar al usuario a través de un proceso complejo.
+
+76. `v-subheader`: Este componente se utiliza para mostrar un subencabezado en la aplicación. 
+Se utiliza para separar secciones de contenido.
+
+77. `v-switch`: Este componente se utiliza para crear un interruptor en la aplicación. 
+Se utiliza para encender o apagar una opción o función.
+
+78. `v-tabs`: Este componente se utiliza para crear pestañas en la aplicación. 
+Se utiliza para proporcionar opciones de navegación adicionales.
+
+79. `v-textarea`: Este componente se utiliza para crear un área de texto en la aplicación. 
+Se utiliza para capturar información adicional del usuario.
+
+80. `v-text-field`: Este componente se utiliza para crear un campo de texto en la aplicación. 
+Se utiliza para capturar información del usuario, como el nombre o la dirección.
+
