@@ -1,0 +1,11 @@
+module.exports.NOT_FOUND = 404
+module.exports.TEST_CODE = 100
+module.exports.NO_ID = 101
+module.exports.BAD_REQUEST = 102
+module.exports.NO_AUTH = 103
+module.exports.NOT_LOGGED=104
+module.exports.BAD_TOKEN = 105
+module.exports.BAD_LOGIN = 106
+module.exports.EXISTING_USER = 107
+module.exports.ALREADY_LOGGED = 108
+module.exports.USER_NOT_EXIST = 109
