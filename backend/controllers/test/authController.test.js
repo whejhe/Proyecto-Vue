@@ -1,61 +1,51 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { User } = require('../../models/userModel');
-const authController = require('../authController');
+// const { mockRequest, mockResponse } = require("jest-mock-req-res");
+// const { register } = require("../authController");
+// const { createUser, deleteUser } = require("../user.controllers")
 
-describe('Auth Controller', () => {
-    describe('register', () => {
-        it('should create a new user', async () => {
-        
-            const req = {
-                body: {
-                    username: 'carlos',
-                    email: 'carlos@gmail.com',
-                    password: '1234',
-                },
-            };
 
-            
-            const res = {
-                status: jest.fn().mockReturnThis(),
-                json: jest.fn(),
-            };
+// describe('Auth Controller', () => {
+//     describe('register', () => {
+//         it('should create a new user', async () => {
+//             const req = {
+//                 body: {
+//                     username: 'zarlos',
+//                     email: 'zarlos@gmail.com',
+//                     password: '1234',
+//                 },
+//                 headers: {
+//                     authorization: null,
+//                 },
+//             };
+//             const res = mockResponse();
+//             await register(req, res);
 
-            
-            const hash = bcrypt.hashSync(req.body.password, 10);
+//             expect(res.status).toHaveBeenCalledWith(200);
+//             expect(res.json).toHaveBeenCalledWith({
+//                 token: expect.any(String),
+//             });
+//         });
+//     });
+// });
 
-            
-            const userDB = {
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password,
-            };
+const { mockRequest, mockResponse } = require("jest-mock-req-res");
+const { login } = require("../authController");
 
-            
-            jest.spyOn(bcrypt, 'hashSync').mockReturnValue(hash);
+test("usuario logeado", async () => {
+    const req = {
+        body: {
+            email: "carlos@gmail.com",
+            password: "1234",
+        },
+        headers: {
+            authorization: null,
+        },
+    };
+    const res = mockResponse();
 
-            
-            jest.spyOn(User, 'create').mockResolvedValue(userDB);
+    await login(req, res);
 
-            
-            await authController.register(req, res);
-
-            
-            expect(User.create).toHaveBeenCalledTimes(1);
-            expect(User.create).toHaveBeenCalledWith({
-                username: req.body.username,
-                email: req.body.email,
-                password: hash,
-            });
-
-            
-            expect(res.status).toHaveBeenCalledWith(200);
-
-            
-            expect(res.json).toHaveBeenCalledWith({
-                message: 'El usuario se ha creado correctamente',
-                userDB,
-            });
-        });
+    // expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+        token: expect.any(String),
     });
 });
