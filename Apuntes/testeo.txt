@@ -49,6 +49,10 @@ Iterables
 Testeo del front con Vitest:
 https://www.youtube.com/watch?v=Yocj2BB3AQU
 
+https://pinia.vuejs.org/cookbook/testing.html#testing-stores
+
+https://runthatline.com/how-to-mock-axios-with-vitest/
+
 yarn install
 yarn add yarn
 yarn add -D vitest

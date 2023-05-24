@@ -22,7 +22,7 @@
 
 <script setup>
 import { reactive } from "vue";
-import apiClient from "../../Middlewares/axiosInstance";
+import apiClient from "../../middlewares/axiosInstance";
 import getToken from "../../Middlewares/auth";
 
 
