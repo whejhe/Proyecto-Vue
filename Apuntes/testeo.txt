@@ -44,3 +44,13 @@ Comparar cadenas de texto
 Iterables
 
     .toContain() => chequea si un array u objeto, contiene un item particular
+
+
+Testeo del front con Vitest:
+https://www.youtube.com/watch?v=Yocj2BB3AQU
+
+yarn install
+yarn add yarn
+yarn add -D vitest
+
+Creamos el archivo vitest.config.js en la raiz del proyecto para configuarlo

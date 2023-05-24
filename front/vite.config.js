@@ -23,5 +23,8 @@ export default defineConfig({
       cert:fs.readFileSync('src/Certificate/client-cert.pem')
     }
 
+  },
+  test:{
+    environment: 'happy-dom'
   }
 })
