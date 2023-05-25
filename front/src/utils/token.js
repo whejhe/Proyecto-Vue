@@ -1,6 +1,4 @@
 const TOKEN_KEY = 'token';
-// const BASE_URL = process.env.VITE_BASE_URL;
-// const JWT_TOKEN = process.env.VITE_JWT_TOKEN;
 
 // Función para obtener el token del almacenamiento local
 export function getToken() {
@@ -38,6 +36,4 @@ export default {
     getToken,
     saveToken,
     destroyToken,
-    // BASE_URL,
-    // JWT_TOKEN
 }

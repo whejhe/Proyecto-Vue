@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 import { router } from "../router";
 
 
@@ -22,10 +23,11 @@ const useAuthStore = defineStore({
     },
     actions: {
         async login(email, password) {
-            const user = await fetchWrapper.post(`${baseUrl}/login`, { email, password });
+            const user = await axios.post('/login', { email, password });
             this.user = user;
             localStorage.setItem('user', JSON.stringify(user));
             router.push(this.returnUrl || '/');
+            return user
         },
         logout() {
             this.user = null;
@@ -33,23 +35,26 @@ const useAuthStore = defineStore({
             router.push('/login');
         },
         async register(email, username, password) {
-            const user = await fetchWrapper.post(`${baseUrl}/register`, { email, username, password });
+            const user = await Axios.post(`${baseUrl}/register`, { email, username, password });
             this.user = user;
             localStorage.setItem('user', JSON.stringify(user));
             router.push('/login');
         },
         async addProfile(profileData) {
             const user = JSON.parse(localStorage.getItem('user'));
-            const response = await fetchWrapper.post(`${baseUrl}/user/perfil`, { userId: user.id, ...profileData });
+            const response = await Axios.post(`${baseUrl}/user/perfil`, { userId: user.id, ...profileData });
             return response;
         },
-        async addGrupo(name,yearFormed,genero,description) {
-            const grupo = await fetchWrapper.post(`${baseUrl}/addGrupo`, {name,yearFormed,genero,description});
+        async addGrupo(name, yearFormed, genero, description) {
+            const grupo = await Axios.post(`${baseUrl}/addGrupo`, { name, yearFormed, genero, description });
             this.grupo = grupo;
             localStorage.setItem('grupo', JSON.stringify(grupo));
             router.push('/addGrupo');
         }
     },
+
 });
+
+
 
 export default useAuthStore;

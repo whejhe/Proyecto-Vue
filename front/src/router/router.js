@@ -39,7 +39,7 @@ const routes = [
         // }
     },
     {
-        path: "/user/perfil",
+        path: "/profile",
         name: "profileViews",
         component: profile,
     },
