@@ -8,7 +8,7 @@
             <v-btn v-if="!authStore.estaLogueado" to="/register" class="ma-2"> Registro </v-btn>
             <v-btn v-if="!authStore.estaLogueado" to="/login">Login</v-btn>
             <v-btn v-if="authStore.estaLogueado" to="/addGrupo">Añadir Grupo</v-btn>
-            <v-btn v-if="authStore.estaLogueado" to="/profile">Perfil</v-btn>
+            <v-btn v-if="authStore.estaLogueado" to="/user/profile">Perfil</v-btn>
             <v-btn v-if="authStore.estaLogueado" @click="desloguear">Cerrar Sesion</v-btn>
         </v-toolbar>
     </v-app-bar>

@@ -31,6 +31,13 @@ const routes = [
         }
     },
     {
+        path: "/user",
+        name: "user",
+        meta:{
+            requiresGuest: true,
+        }
+    },
+    {
         path: "/addGrupo",
         name: "addGrupo",
         component: addGrupo,
@@ -39,7 +46,7 @@ const routes = [
         // }
     },
     {
-        path: "/profile",
+        path: "/user/profile",
         name: "profileViews",
         component: profile,
     },

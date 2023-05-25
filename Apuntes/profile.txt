@@ -1,0 +1,22 @@
+
+    const route = useRoute();
+
+    nickname.value = route.params.nickname;
+
+    try {
+        const response = await instance_axios.get(`/getNickname/${nickname.value}`);
+        console.log(response.data);
+        exists.value = true;
+    } catch (error) {
+        console.log(error);
+        exists.value = false;
+        router.push({ path: '/404' })
+    }
+
+
+{ path: '/perfil/:nickname', name: 'perfilPublico', component: vwPublicProfile },
+
+
+
+
+
