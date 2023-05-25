@@ -22,7 +22,7 @@
 
 <script setup>
 import { reactive } from "vue";
-import apiClient from "../../middlewares/axiosInstance";
+import axiosInstance from "../../middlewares/axiosInstance";
 import getToken from "../../Middlewares/auth";
 
 
@@ -48,7 +48,7 @@ async function agregarPerfil() {
         errorMessage = "No se pudo completar el perfil, no se encontro un token valido";
     }
     try {
-        const response = await apiClient.post(
+        const response = await axiosInstance.post(
             "profile",
             {
                 firstName: data.firstName,

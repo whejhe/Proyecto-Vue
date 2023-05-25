@@ -20,6 +20,7 @@ import { router } from "@/router"
 import { authStores } from "@/stores";
 const authStore = authStores();
 
+
 function desloguear() {
     localStorage.removeItem("token");
     router.push("/");

@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://localhost:3000';
 
 
-const clientServer = axios.create({
+const axiosInstance = axios.create({
     baseURL: 'https://localhost:3000',
     withCredentials: false,
     headers: {
@@ -14,4 +14,4 @@ const clientServer = axios.create({
 })
 
 
-export default clientServer;
+export default axiosInstance;

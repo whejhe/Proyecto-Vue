@@ -17,7 +17,6 @@ async function verificarToken(token) {
     }
 }
 
-
 function checkToken() {
     const token = getToken()
     return token !== null

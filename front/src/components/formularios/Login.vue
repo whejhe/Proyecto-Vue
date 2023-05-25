@@ -13,7 +13,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { router } from "@/router";
-import apiClient from "../../middlewares/axiosInstance";
+import axiosInstance from "../../middlewares/axiosInstance";
 import { authStores } from "@/stores";
 
 const authStore = authStores();
@@ -32,7 +32,7 @@ function iniciarSesion() {
     return;
   }
 
-  apiClient
+  axiosInstance
     .post("login", {
       email: data.email,
       password: data.password,
@@ -41,8 +41,8 @@ function iniciarSesion() {
       if (res.status === 200) {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
+          console.log(res.data.token);
         }
-        //console.log(res);
         router.push("/")
         alert("Usuario logeado correctamente"),
           authStore.estaLogueado = true;
@@ -59,7 +59,6 @@ function iniciarSesion() {
         console.log();
       data.showAlert = true
       data.errorText = 'Usuario o contraseña inválidas'
-      router.push('login')
     });
 
 }

@@ -35,18 +35,18 @@ const useAuthStore = defineStore({
             router.push('/login');
         },
         async register(email, username, password) {
-            const user = await Axios.post(`${baseUrl}/register`, { email, username, password });
+            const user = await axios.post(`${baseUrl}/register`, { email, username, password });
             this.user = user;
             localStorage.setItem('user', JSON.stringify(user));
             router.push('/login');
         },
         async addProfile(profileData) {
             const user = JSON.parse(localStorage.getItem('user'));
-            const response = await Axios.post(`${baseUrl}/user/perfil`, { userId: user.id, ...profileData });
+            const response = await axios.post(`${baseUrl}/user/perfil`, { userId: user.id, ...profileData });
             return response;
         },
         async addGrupo(name, yearFormed, genero, description) {
-            const grupo = await Axios.post(`${baseUrl}/addGrupo`, { name, yearFormed, genero, description });
+            const grupo = await axios.post(`${baseUrl}/addGrupo`, { name, yearFormed, genero, description });
             this.grupo = grupo;
             localStorage.setItem('grupo', JSON.stringify(grupo));
             router.push('/addGrupo');

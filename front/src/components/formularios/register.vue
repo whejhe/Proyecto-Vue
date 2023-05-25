@@ -16,7 +16,7 @@
 <script setup>
 import { reactive } from "vue";
 import { router } from "@/router";
-import apiClient from "../../middlewares/axiosInstance";
+import axiosInstance from "../../middlewares/axiosInstance";
 
 
 const data = reactive({
@@ -30,7 +30,7 @@ function registrarse() {
   if (!data.email || !data.password || !data.username) {
     console.log("No se pudo registrar el usuario, comprueba si la cuenta está disponible");
   }
-  apiClient
+  axiosInstance
     .post("register", {
       username: data.username,
       email: data.email,

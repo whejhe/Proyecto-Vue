@@ -16,7 +16,7 @@ describe("Test", () => {
 
 vi.mock("axios");
 
-describe("authStore", () => {
+describe("login", () => {
     it("muestra el login correctamente", async () => {
         const email = "a@gmail.com";
         const password = "1234";
@@ -29,18 +29,18 @@ describe("authStore", () => {
         expect(axios.post).toHaveBeenCalledWith('/login', { email, password });
         expect(user).toHaveProperty('token');
     });
+});
 
-    it("deberia fallar con datos inválidos", async () => {
-        const email = "r@gmail.com";
-        const password = "skjdgdclewshl";
+describe("register",()=>{
+    it("registro correctamente", async () => {
+        const username = "carlos";
+        const email = "carlos@gmail.com";
+        const password = "123244";
+        axios.post.token = "aljkhsgllfsdhgj";
+        
+        const user = axios.post('/register', { username, email, password });
 
-        axios.post.mockResolvedValue({ token: 'aljkhsgllfsdhgj' })
-
-        const user = await axios.post('/login', { email, password })
-        console.log(user);
-
-        expect(axios.post).toHaveBeenCalledWith('/login', { email, password });
-        expect(user).toHaveProperty('token');
+        expect(axios.post).toHaveBeenCalledWith('/register', { username, email, password });
+        expect(user).toBeDefined();
     });
-
 });
