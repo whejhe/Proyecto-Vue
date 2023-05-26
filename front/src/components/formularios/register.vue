@@ -29,6 +29,7 @@ function registrarse() {
 
   if (!data.email || !data.password || !data.username) {
     console.log("No se pudo registrar el usuario, comprueba si la cuenta está disponible");
+    return;
   }
   axiosInstance
     .post("register", {
@@ -44,6 +45,7 @@ function registrarse() {
         }
         console.log(res);
         router.push("/login");
+        // router.push(`/users/${data.id}`);
 
       }
       alert("Usuario registrado correctamente");

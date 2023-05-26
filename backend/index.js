@@ -16,7 +16,6 @@ const { Sequelize } = require('sequelize');
 
 //Modelos
 const { User } = require('./models/userModel');
-const { Profile} = require('./models/profileModel');
 
 const bcrypt = require('bcrypt');
 const { verifyToken } = require('./middleware/auth');

@@ -1,4 +1,4 @@
-const { User } = require('../models/userModel');
+const { User, Profile } = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -15,6 +15,10 @@ const register = async (req, res) => {
             password: hash,
         });
         const userDB = await User.create(user);
+
+        //funcion para crear ruta personalizada
+        // createUserRoute(req.body.username);
+
         return res.status(200).json({
             message: 'El usuario se ha creado correctamente',
             userDB
@@ -24,10 +28,16 @@ const register = async (req, res) => {
         console.log(err);
         return res.status(500).json({
             message: 'Error al crear el usuario',
-            err
+            err,
         })
     }
-}
+};
+
+// const createUserRoute = (username) => {
+//     app.get(`/users/${User.id}`, (req, res) => {
+//         res.send(`Bienvenido ${User.username} a tu página personalizada`);
+//     });
+// };
 
 const login = async (req, res) => {
     const { email, password } = req.body;

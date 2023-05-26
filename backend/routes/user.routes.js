@@ -3,6 +3,7 @@ const router = express.Router();
 const {getUsers,getUserById,createUser, updateUser, deleteUser} = require('../controllers/user.controllers') 
 const {register,login,logout} = require('../controllers/authController')
 const jsonParser = require('body-parser').json()
+const users = require('../models/userModel')
 
 
 
@@ -15,6 +16,7 @@ router.delete('/borrarUsuario/:id',jsonParser,deleteUser);
 
 
 router.post('/register',jsonParser,register);
+// router.post(`/login/${users.getUserById}`,jsonParser,login);
 router.post('/login',jsonParser,login);
 router.post('/logout',jsonParser,logout);
 

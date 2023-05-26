@@ -48,6 +48,7 @@ function iniciarSesion() {
           authStore.estaLogueado = true;
         console.log('logueado:', authStore.estaLogueado);
         router.push("/");
+        // router.push(`/users/${data.id}`);
       } else {
         console.log(Error);
       }

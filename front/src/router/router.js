@@ -31,13 +31,6 @@ const routes = [
         }
     },
     {
-        path: "/user",
-        name: "user",
-        meta:{
-            requiresGuest: true,
-        }
-    },
-    {
         path: "/addGrupo",
         name: "addGrupo",
         component: addGrupo,
