@@ -8,7 +8,7 @@ async function verificarToken(token) {
     try {
         const response = await api.post('auth', null, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
             }
         })
         return response.status === 200

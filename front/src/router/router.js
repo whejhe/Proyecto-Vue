@@ -39,8 +39,8 @@ const routes = [
         // }
     },
     {
-        path: "/user/profile",
-        name: "profileViews",
+        path: `/profile`,
+        name: "profileView",
         component: profile,
     },
     //Ruta para manejar errores 404
@@ -68,6 +68,7 @@ router.beforeEach((to, from, next) => {
     verificarLogueado();
     if(to.matched.some(record => record.meta.requiresGuest) && authStores().estaLogueado) {
         next({name: 'inicio'});
+        saveToken();
     }else{
         next();
     }

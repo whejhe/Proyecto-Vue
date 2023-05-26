@@ -57,15 +57,7 @@ const User = sequelize.define('User', {
     },
     firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notNull: {
-                msg: 'El nombre es obligatorio'
-            },
-            notEmpty: {
-                msg: 'El nombre no puede estar vacio'
-            }
-        }
+        allowNull: true,
     },
     lastName: {
         type: DataTypes.STRING,
@@ -77,7 +69,7 @@ const User = sequelize.define('User', {
     },
     gender: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         defaultValue: 'other',
         validate: {
             isIn: {
@@ -87,14 +79,14 @@ const User = sequelize.define('User', {
     },
     profileImage: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
     },
 },{
     timestamps:false
 });
 
 /*Descomentar "force: true" para borrar datos*/
-sequelize.sync({force: true}).then(() => {
+sequelize.sync({/*force: true*/}).then(() => {
     console.log('La conexión a la base de datos se ha establecido correctamente.');
 }).catch((error) => {
     console.error('Ocurrió un error durante la conexión a la base de datos:', error);

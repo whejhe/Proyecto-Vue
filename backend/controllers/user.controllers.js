@@ -32,6 +32,9 @@ const createUser = async (req,res)=>{
     const {username,email,password} = req.body;
     try{
         const user = await User.create({username,email,password});
+        user.username=username;
+        user.email=email;
+        user.password=password;
         res.status(201).json(user);
     }catch(error){
         res.status(500).json({message:error.message});
@@ -41,15 +44,17 @@ const createUser = async (req,res)=>{
 //Actualizar Usuario
 const updateUser = async(req,res)=>{
     const {id} = req.params;
-    const {username,email,password} = req.body;
+    const {firstName,lastName,age,gender,profileImage} = req.body;
     try{
         const user = await User.findByPk(id);
         if(!user){
             res.status(404).json({message:'Usuario no encontrado'});
         }else{
-            user.username = username;
-            user.email = email;
-            user.password = password;
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.age = age;
+            user.gender = gender;
+            user.profileImage = profileImage;
             await user.save();
             res.json(user);
         }

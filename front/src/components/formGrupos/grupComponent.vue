@@ -18,7 +18,7 @@
 <script setup>
 import { reactive } from "vue";
 import { router } from "@/router";
-import apiClient from "../../middlewares/axiosInstance";
+import apiClient from "../../Middlewares/axiosInstance";
 
 
 const data = reactive({

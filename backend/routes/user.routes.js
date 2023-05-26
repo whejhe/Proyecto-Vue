@@ -11,12 +11,11 @@ const users = require('../models/userModel')
 router.get('/user',getUsers);
 router.get('/userId/:id',getUserById);
 router.post('/crearUsuario',jsonParser,createUser);
-router.post('/actualizarUsuario/:id',jsonParser, updateUser);
+router.post('/profile:id',jsonParser, updateUser);//probando
 router.delete('/borrarUsuario/:id',jsonParser,deleteUser);
 
 
 router.post('/register',jsonParser,register);
-// router.post(`/login/${users.getUserById}`,jsonParser,login);
 router.post('/login',jsonParser,login);
 router.post('/logout',jsonParser,logout);
 

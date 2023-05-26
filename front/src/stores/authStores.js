@@ -40,9 +40,9 @@ const useAuthStore = defineStore({
             localStorage.setItem('user', JSON.stringify(user));
             router.push('/login');
         },
-        async addProfile(profileData) {
+        async profile(profileData) {
             const user = JSON.parse(localStorage.getItem('user'));
-            const response = await axios.post(`${baseUrl}/user/perfil`, { userId: user.id, ...profileData });
+            const response = await axios.post(`${baseUrl}/profile`, { userId: user.id, firstName,lastName,age,gender,profileImage });
             return response;
         },
         async addGrupo(name, yearFormed, genero, description) {

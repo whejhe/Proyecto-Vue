@@ -1,4 +1,4 @@
-const { User, Profile } = require('../models/userModel');
+const { User } = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -13,11 +13,14 @@ const register = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hash,
+            // firstName:null,
+            // lastName:null,
+            // age:null,
+            // gender:null,
+            // profileImage:null,
+
         });
         const userDB = await User.create(user);
-
-        //funcion para crear ruta personalizada
-        // createUserRoute(req.body.username);
 
         return res.status(200).json({
             message: 'El usuario se ha creado correctamente',
@@ -33,11 +36,6 @@ const register = async (req, res) => {
     }
 };
 
-// const createUserRoute = (username) => {
-//     app.get(`/users/${User.id}`, (req, res) => {
-//         res.send(`Bienvenido ${User.username} a tu página personalizada`);
-//     });
-// };
 
 const login = async (req, res) => {
     const { email, password } = req.body;
@@ -70,31 +68,7 @@ const logout = (req, res) => {
     res.json({ message: 'Sesión cerrada correctamente' });
 };
 
-const profile = async (req, res) => {
-    const { firstName, lastName, age, bio } = req.body;
-    try {
-        const profile = await Profile.create({
-            firstName: firstName,
-            lastName: lastName,
-            age: age,
-            bio: bio,
-            // Aquí puedes agregar más campos si es necesario
-        });
-        console.log("PERFIL CREADO", profile);
-        res.send('Perfil creado exitosamente');
-    } catch (error) {
-        if (error.name === 'SequelizeValidationError') {
-            // Si hay errores de validación, se envía un mensaje con los errores
-            const errors = error.errors.map((error) => error.message);
-            res.status(400).send({ errors: errors });
-        } else {
-            // Si hay otro tipo de error, se envía un mensaje genérico de error
-            res.status(500).send('Error al crear el perfil');
-            console.log("ERROR DE CREACIÓN DE PERFIL", error);
-        }
-    }
-}
 
 
 
-module.exports = { register, login, logout, profile };
+module.exports = { register, login, logout };

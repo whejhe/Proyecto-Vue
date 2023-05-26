@@ -10,7 +10,7 @@
             </v-text-field>
             <v-select v-model="data.gender" label="Genero" :items="['Masculino', 'Femenino', 'Otro']">
             </v-select>
-            <v-file-input v-model="data.profileImage" label="Imagen de perfil" accept="image/*" prepend-icon="mdi-camera"
+            <v-file-input v-model="data.profileImage" label="Imagen de perfil" accept="@/images/*" prepend-icon="mdi-camera"
                 @change="onFileChange"></v-file-input>
             <v-btn type="submit" class="btn-registroLogin">
                 Guardar <v-icon icon="mdi-vuetify"> </v-icon></v-btn>
@@ -23,7 +23,6 @@
 import { reactive } from "vue";
 import axiosInstance from "../../middlewares/axiosInstance";
 import getToken from "../../Middlewares/auth";
-import { toast } from "vue3-toastify";
 
 const data = reactive({
     firstName: "",
@@ -32,6 +31,7 @@ const data = reactive({
     gender: "",
     profileImage: null, // Cambia el valor inicial a null
 });
+
 
 let errorMessage = "";
 
@@ -77,6 +77,7 @@ function onFileChange(event) {
     const file = event.target.files[0];
     data.profileImage = file; // Almacena el archivo seleccionado en la propiedad reactive 'profileImage'
 }
+
 
 </script>
 

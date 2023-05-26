@@ -105,10 +105,10 @@ app.get('/login', (req, res) => {
     }
 });
 
-app.post('/profile', async (req, res) => {
-    const { firstName, lastName, age, bio } = req.body;
+app.post('/user/profile/:id', async (req, res) => {
+    const { firstName, lastName, age, gender,profileImage } = req.body;
     try {
-        const profile = await Profile.create({
+        const profile = await profile.create({
             firstName: firstName,
             lastName: lastName,
             age: age,
@@ -136,7 +136,7 @@ app.post('/profile', async (req, res) => {
 app.post('/login', authController.login);
 app.post('/logout', authController.logout);
 app.post('/register',authController.register);
-app.post('/profile',authController.profile);
+// app.post('/user/profile/:id',authController.profile);
 
 
 // Ruta protegida que requiere un token de autenticación
