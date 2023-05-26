@@ -43,25 +43,34 @@ const createUser = async (req,res)=>{
 
 //Actualizar Usuario
 const updateUser = async(req,res)=>{
-    const {id} = req.params;
+    const {id} = req.body;
     const {firstName,lastName,age,gender,profileImage} = req.body;
     try{
-        const user = await User.findByPk(id);
+        const user = await User.findOne({where:{id:id}});
         if(!user){
             res.status(404).json({message:'Usuario no encontrado'});
+        }
+        const result = await User.update({
+            firstName:firstName,
+            lastName:lastName,
+            age:age,
+            gender:gender,
+            profileImage:profileImage,
+        },{where:{id:id}}
+        );
+        if(result[0]===1){
+            res.send("Usuario actualizado");
         }else{
-            user.firstName = firstName;
-            user.lastName = lastName;
-            user.age = age;
-            user.gender = gender;
-            user.profileImage = profileImage;
-            await user.save();
-            res.json(user);
+            res.send("No se pudo actualizar el usuario");
+            throw new Error();
         }
     }catch(error){
-        res.status(500).json({message:error.message});
+        // res.status(500).json({message:error.message});
+        console.log("El error es:",error)
     }
 };
+
+
 
 //Borrar Usuario
 const deleteUser = async (req,res)=>{

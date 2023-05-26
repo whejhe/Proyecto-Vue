@@ -21,8 +21,9 @@
 
 <script setup>
 import { reactive } from "vue";
-import axiosInstance from "../../middlewares/axiosInstance";
+import axiosInstance from "../../Middlewares/axiosInstance";
 import getToken from "../../Middlewares/auth";
+import { saveToken } from "../../utils/token";
 
 const data = reactive({
     firstName: "",

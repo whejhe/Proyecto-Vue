@@ -13,7 +13,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { router } from "@/router";
-import axiosInstance from "../../middlewares/axiosInstance";
+import axiosInstance from "../../Middlewares/axiosInstance";
 import { authStores } from "@/stores";
 
 const authStore = authStores();

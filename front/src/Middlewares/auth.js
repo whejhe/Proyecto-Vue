@@ -1,4 +1,4 @@
-import api from '../utils/token'
+import api, { saveToken } from '../utils/token'
 import { getToken } from '../utils/token'
 
 async function verificarToken(token) {
@@ -22,25 +22,24 @@ function checkToken() {
     return token !== null
 }
 
+
 export default function (to, from, next) {
-    const token = getToken()
+    const token = getToken();
     if (token) {
-        if (checkToken()) {
-            verificarToken(token).then((isValid) => {
+        verificarToken(token)
+            .then((isValid) => {
                 if (isValid) {
-                    next()
+                    next();
                 } else {
-                    alert('Token inválido');
-                    next({ name: 'login' })
+                    console.log('Token inválido');
+                    next({ name: 'login' });
                 }
             })
-        } else {
-            next({ name: 'login' })
-        }
+            .catch((error) => {
+                console.log('Error al verificar el token:', error);
+                next({ name: 'login' });
+            });
     } else {
-        next()
+        next();
     }
 }
-
-
-

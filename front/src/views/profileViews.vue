@@ -4,8 +4,8 @@
 
 <script setup>
 import {reactive,onMounted} from 'vue';
-import getToken from "../Middlewares/auth";
 import {profileComponent} from '@/components';
+import axiosInstance  from '../Middlewares/axiosInstance';
 
 const datos = reactive({
     firstName: "",
@@ -18,13 +18,8 @@ const datos = reactive({
 let errorMessage = "";
 
 onMounted(() => {
-    const token = getToken();
-    if (!token) {
-        errorMessage = "No se pudo completar el perfil, no se encontró un token válido";
-        return;
-    }
     try{
-        const response = axiosInstance.get(`profile/${this.$route.params.id}`, {
+        const response = axiosInstance.get(`profile/${this.$route.data.profileComponent}`, {
             headers:{
                 "Authorization": `Bearer ${token}`,
             }

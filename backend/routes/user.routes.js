@@ -11,7 +11,7 @@ const users = require('../models/userModel')
 router.get('/user',getUsers);
 router.get('/userId/:id',getUserById);
 router.post('/crearUsuario',jsonParser,createUser);
-router.post('/profile:id',jsonParser, updateUser);//probando
+router.put('/profile',jsonParser, updateUser);//probando
 router.delete('/borrarUsuario/:id',jsonParser,deleteUser);
 
 
