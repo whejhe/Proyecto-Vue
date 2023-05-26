@@ -6,6 +6,7 @@
 import {reactive,onMounted} from 'vue';
 import {profileComponent} from '@/components';
 import axiosInstance  from '../Middlewares/axiosInstance';
+import { getToken } from '../utils/token';
 
 const datos = reactive({
     firstName: "",
@@ -16,10 +17,11 @@ const datos = reactive({
 })
 
 let errorMessage = "";
+const token = getToken();
 
 onMounted(() => {
     try{
-        const response = axiosInstance.get(`profile/${this.$route.data.profileComponent}`, {
+        const response = axiosInstance.get(`profile/${id}`, {
             headers:{
                 "Authorization": `Bearer ${token}`,
             }

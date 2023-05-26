@@ -1,8 +1,11 @@
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 const TOKEN_KEY = 'token';
 
 // Función para obtener el token del almacenamiento local
 export function getToken() {
-    const token = localStorage.getItem(TOKEN_KEY);
+    const token = localStorage.getItem(TOKEN_KEY) || process.env.TOKEN_KEY;
     if(!token) {
         return null;
     }
