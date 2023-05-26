@@ -1,0 +1,110 @@
+vue.js
+
+<template>
+  <div>
+    <form @submit="registerUser">
+      <input type="text" v-model="name" placeholder="Nombre" required>
+      <input type="email" v-model="email" placeholder="Correo electrónico" required>
+      <input type="password" v-model="password" placeholder="Contraseña" required>
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    registerUser() {
+      axios.post('/register', {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      })
+      .then(response => {
+        // Manejar la respuesta del servidor
+      })
+      .catch(error => {
+        // Manejar errores
+      });
+    },
+  },
+};
+</script>
+
+------------------------------------------------------------------------------------------------------------------
+
+En Node.js (utilizando Express.js):
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Ruta de registro de usuarios
+app.post('/register', (req, res) => {
+  const { name, email, password } = req.body;
+
+  // Aquí puedes realizar las operaciones necesarias para registrar al usuario en tu base de datos
+  // y luego crear una nueva ruta con el nombre del usuario utilizando `app.get` o `app.post`
+
+  // Ejemplo: Crear una nueva ruta con el nombre del usuario
+  app.get(`/users/${name}`, (req, res) => {
+    // Lógica para manejar la ruta personalizada del usuario
+    res.send(`Bienvenido ${name} a tu página personalizada`);
+  });
+
+  res.send('Registro exitoso');
+});
+
+// Resto de tus rutas y configuración de servidor
+
+app.listen(3000, () => {
+  console.log('Servidor escuchando en el puerto 3000');
+});
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+userController.js (node)
+
+const express = require('express');
+const router = express.Router();
+
+// Registro de usuarios
+function registerUser(req, res) {
+  const { name, email, password } = req.body;
+
+  // Lógica para registrar al usuario en la base de datos
+
+  // Crear una nueva ruta dinámica con el nombre del usuario
+  router.get(`/users/${name}`, (req, res) => {
+    // Lógica para manejar la ruta personalizada del usuario
+    res.send(`Bienvenido ${name} a tu página personalizada`);
+  });
+
+  res.send('Registro exitoso');
+}
+
+module.exports = {
+  registerUser,
+};
+-----------------------------------------------------------------------------------------------------------------------------
+registerUser
+
+const express = require('express');
+const router = express.Router();
+const userController = require('./controllers/userController');
+
+// Ruta de registro de usuarios
+router.post('/register', userController.registerUser);
+
+module.exports = router;
