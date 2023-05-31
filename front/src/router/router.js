@@ -4,8 +4,6 @@ import Login from "../views/login.vue";
 import inicio from "../views/inicio.vue";
 import profile from "../views/profileViews.vue"
 import addGrupo from "../views/grupView.vue";
-import { authStores } from "@/stores";
-import { getToken, saveToken, destroyToken } from '../utils/token';
 
 const routes = [
     {
@@ -56,22 +54,22 @@ const router = createRouter({
     routes
 });
 
-function verificarLogueado() {
-    if (getToken()) {
-        authStores().estaLogueado = true;
-    } else {
-        authStores().estaLogueado = false;
-    }
-}
+// function verificarLogueado() {
+//     if (getToken()) {
+//         authStores().estaLogueado = true;
+//     } else {
+//         authStores().estaLogueado = false;
+//     }
+// }
 
-router.beforeEach((to, from, next) => {
-    verificarLogueado();
-    if(to.matched.some(record => record.meta.requiresGuest) && authStores().estaLogueado) {
-        next({name: 'inicio'});
-        saveToken();
-    }else{
-        next();
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     verificarLogueado();
+//     if(to.matched.some(record => record.meta.requiresGuest) && authStores().estaLogueado) {
+//         next({name: 'inicio'});
+//         saveToken();
+//     }else{
+//         next();
+//     }
+// })
 
 export default router;

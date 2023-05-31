@@ -41,14 +41,11 @@ function iniciarSesion() {
       if (res.status === 200) {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
-          console.log(res.data.token);
         }
         router.push("/")
         alert("Usuario logeado correctamente"),
           authStore.estaLogueado = true;
-        console.log('logueado:', authStore.estaLogueado);
         router.push("/");
-        // router.push(`/users/${data.id}`);
       } else {
         console.log(Error);
       }

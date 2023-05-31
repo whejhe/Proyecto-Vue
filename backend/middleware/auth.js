@@ -5,9 +5,12 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const verifyToken = (req, res, next) => {
+    console.log("Estamos en verifyToken middleware");
     console.log(req.headers)
     //Verifica si la solicitud se realiza a la ruta de registro de usuario
     if ((req.path === '/Register') && req.method === 'POST') {
+        next();
+    }else if(req.path==='/login' && req.method==='POST'){
         next();
     }else if(req.path==='/profile' && req.method==='POST'){
         next();
@@ -23,7 +26,7 @@ const verifyToken = (req, res, next) => {
             next();
         } catch (error) {
             // Si el token es inválido, devuelve un error 401 (No autorizado)
-            res.status(401).json({ message: 'Token inválido' });
+            res.status(401).json({ message: 'El Token no es válido' });
             console.log(error);
         }
     }

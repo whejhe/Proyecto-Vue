@@ -13,12 +13,6 @@ const register = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hash,
-            // firstName:null,
-            // lastName:null,
-            // age:null,
-            // gender:null,
-            // profileImage:null,
-
         });
         const userDB = await User.create(user);
 
@@ -35,6 +29,7 @@ const register = async (req, res) => {
         })
     }
 };
+
 
 
 const login = async (req, res) => {
@@ -71,4 +66,4 @@ const logout = (req, res) => {
 
 
 
-module.exports = { register, login, logout };
+module.exports = { register, login, logout, };

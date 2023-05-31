@@ -78,19 +78,15 @@ const User = sequelize.define('User', {
         }
     },
     profileImage: {
-        type: DataTypes.STRING,
+        type: DataTypes.BLOB,
         allowNull: true,
     },
 },{
     timestamps:false
 });
 
-/*Descomentar "force: true" para borrar datos*/
-sequelize.sync({/*force: true*/}).then(() => {
-    console.log('La conexión a la base de datos se ha establecido correctamente.');
-}).catch((error) => {
-    console.error('Ocurrió un error durante la conexión a la base de datos:', error);
-});
+// sequelize.sync({force: true})
 
-module.exports.Sequelize = Sequelize;
+
+// module.exports.Sequelize = Sequelize;
 module.exports.User = User;

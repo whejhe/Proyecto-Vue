@@ -16,7 +16,7 @@
 <script setup>
 import { reactive } from "vue";
 import { router } from "@/router";
-import axiosInstance from "../../middlewares/axiosInstance";
+import axiosInstance from "../../Middlewares/axiosInstance";
 
 
 const data = reactive({
@@ -45,7 +45,6 @@ function registrarse() {
         }
         console.log(res);
         router.push("/login");
-        // router.push(`/users/${data.id}`);
 
       }
       alert("Usuario registrado correctamente");

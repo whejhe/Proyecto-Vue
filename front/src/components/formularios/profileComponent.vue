@@ -8,12 +8,13 @@
             </v-text-field>
             <v-text-field v-model="data.age" label="Edad" type="number">
             </v-text-field>
-            <v-select v-model="data.gender" label="Genero" :items="['Masculino', 'Femenino', 'Otro']">
+            <v-select v-model="data.gender" label="Genero" :items="['male', 'female', 'other']">
             </v-select>
             <v-file-input v-model="data.profileImage" label="Imagen de perfil" accept="@/images/*" prepend-icon="mdi-camera"
                 @change="onFileChange"></v-file-input>
             <v-btn type="submit" class="btn-registroLogin">
-                Guardar <v-icon icon="mdi-vuetify"> </v-icon></v-btn>
+                Guardar <v-icon icon="mdi-vuetify"> </v-icon>
+            </v-btn>
         </v-form>
         <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
     </div>
@@ -21,9 +22,9 @@
 
 <script setup>
 import { reactive } from "vue";
+import { router } from "@/router";
 import axiosInstance from "../../Middlewares/axiosInstance";
-import getToken from "../../Middlewares/auth";
-import { saveToken } from "../../utils/token";
+
 
 const data = reactive({
     firstName: "",
@@ -37,46 +38,36 @@ const data = reactive({
 let errorMessage = "";
 
 async function agregarPerfil() {
-    if (!data.firstName || !data.lastName) {
-        console.log(
-            "No se pudo completar el perfil, comprueba si la cuenta está disponible"
-        );
-        errorMessage =
-            "No se pudo completar el perfil, comprueba si la cuenta está disponible o los campos son correctos";
-        return;
-    }
-    const token = getToken();
-    if (!token) {
-        errorMessage = "No se pudo completar el perfil, no se encontró un token válido";
-        return;
-    }
-    try {
-        // Crea un objeto FormData para enviar los datos del perfil y la imagen
-        const formData = new FormData();
-        formData.append("firstName", data.firstName);
-        formData.append("lastName", data.lastName);
-        formData.append("age", data.age);
-        formData.append("gender", data.gender);
-        formData.append("profileImage", data.profileImage); // Agrega la imagen al FormData
+    axiosInstance
+        .post("profile", {
+            firstname: data.firstName,
+            lastName: data.lastName,
+            age: data.age,
+            gender: data.gender,
+            profileImage: data.profileImage,
+        })
+        .then((res) => {
+            if (res.status === 200) {
+                if (res.data.token) {
+                    localStorage.setItem("token", res.data.token);
+                }
+                console.log(res);
+                router.push("/");
 
-        const response = await axiosInstance.post("profile", formData, {
-            headers: {
-                "Authorization": `Bearer ${token}`,
-                "Content-Type": "multipart/form-data", // Establece el tipo de contenido como multipart/form-data
-            },
+            }
+            alert("Usuario actualizado correctamente");
+        })
+        .catch((err) => {
+            console.log("Error ", err);
         });
-
-        console.log(response.data);
-    } catch (error) {
-        console.log(error);
-        errorMessage =
-            "Ha ocurrido un error al agregar el perfil. Por favor, inténtelo de nuevo más tarde.";
-    }
 }
 
-function onFileChange(event) {
+
+async function onFileChange(event) {
     const file = event.target.files[0];
-    data.profileImage = file; // Almacena el archivo seleccionado en la propiedad reactive 'profileImage'
+    const formData = new FormData();
+    formData.append('profileImage', file);
+    data.profileImage = formData;
 }
 
 
