@@ -3,7 +3,7 @@ const router = express.Router();
 const {getUsers,getUserById,createUser, updateUser, deleteUser} = require('../controllers/user.controllers') 
 const {register,login,logout} = require('../controllers/authController')
 const jsonParser = require('body-parser').json()
-const users = require('../models/userModel')
+const users = require('../models/user')
 
 
 

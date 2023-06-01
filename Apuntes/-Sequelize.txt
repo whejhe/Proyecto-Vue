@@ -1,3 +1,17 @@
 npm install --save-dev sequelize-cli
 
 npx sequelize --help
+
+Migraciones:
+
+npx sequelize-cli model:generate --name User 
+--attributes 
+id:integer,
+username:string,
+email:string,
+password:string,
+firstName:string,
+lastName:string,
+age:integer,
+gender:string,
+profileImage:blob
