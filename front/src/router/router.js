@@ -4,6 +4,8 @@ import Login from "../views/login.vue";
 import inicio from "../views/inicio.vue";
 import profile from "../views/profileViews.vue"
 import addGrupo from "../views/grupView.vue";
+// import token from "../utils/token";
+// import { authStores } from "../stores";
 
 const routes = [
     {
@@ -55,7 +57,7 @@ const router = createRouter({
 });
 
 // function verificarLogueado() {
-//     if (getToken()) {
+//     if (token) {
 //         authStores().estaLogueado = true;
 //     } else {
 //         authStores().estaLogueado = false;
@@ -66,7 +68,7 @@ const router = createRouter({
 //     verificarLogueado();
 //     if(to.matched.some(record => record.meta.requiresGuest) && authStores().estaLogueado) {
 //         next({name: 'inicio'});
-//         saveToken();
+//         destroyed(token)
 //     }else{
 //         next();
 //     }
