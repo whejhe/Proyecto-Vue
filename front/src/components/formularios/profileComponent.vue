@@ -2,6 +2,9 @@
     <div class="div">
         <h1 class="text-center">Perfil</h1>
         <v-form @submit.prevent="agregarPerfil">
+            <h3>{{}}</h3>
+            <v-text-field v-model="data.email" label="Correo" type="e-mail"> </v-text-field>
+            <v-text-field v-model="data.password" label="Contraseña" type="password"></v-text-field>
             <v-text-field v-model="data.firstName" label="Nombre" type="text">
             </v-text-field>
             <v-text-field v-model="data.lastName" label="Apellido" type="text">
@@ -27,6 +30,8 @@ import axiosInstance from "../../Middlewares/axiosInstance";
 
 
 const data = reactive({
+    email: "",
+    password: "",
     firstName: "",
     lastName: "",
     age: "",
@@ -40,6 +45,9 @@ let errorMessage = "";
 async function agregarPerfil() {
     axiosInstance
         .post("profile", {
+            id : "",
+            email: data.email,
+            password: data.password,
             firstname: data.firstName,
             lastName: data.lastName,
             age: data.age,

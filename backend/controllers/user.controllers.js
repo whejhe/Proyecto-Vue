@@ -63,12 +63,12 @@ const updateUser = async (req, res) => {
             { where: { id: id } }
         );
 
-        if (result[0] === 1) {
-            res.send("Usuario actualizado");
-        } else {
-            res.send("No se pudo actualizar el usuario");
-            throw new Error();
-        }
+        // if (result[0] === 1) {
+        //     res.send("Usuario actualizado");
+        // } else {
+        //     res.send("No se pudo actualizar el usuario");
+        //     throw new Error();
+        // }
     } catch (err) {
         console.log("No se pudo actualizar el usuario: ", err);
     }
