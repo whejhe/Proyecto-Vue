@@ -83,11 +83,6 @@ const Users = sequelize.define(
                 }
             },
         },
-
-        profileImage: {
-            type: DataTypes.BLOB,
-            allowNull: true,
-        },
     }, {
     sequelize,
     modelName: 'User',
@@ -95,5 +90,6 @@ const Users = sequelize.define(
 }
 );
 
+// sequelize.sync({force:true});
 
 module.exports.Users = Users;

@@ -16,6 +16,7 @@ const { Sequelize } = require('sequelize');
 
 //Modelos
 const { User } = require('./models/user');
+const { imageUser } = require('./models/imagenUser');
 
 const bcrypt = require('bcrypt');
 const { verifyToken } = require('./middleware/auth');
@@ -105,31 +106,39 @@ app.get('/login', (req, res) => {
     }
 });
 
-app.post('/user/profile/:id', async (req, res) => {
-    const { firstName, lastName, age, gender,profileImage } = req.body;
-    try {
-        const profile = await profile.create({
-            firstName: firstName,
-            lastName: lastName,
-            age: age,
-            gender: gender,
-            profileImage: profileImage,
-            // Aquí puedes agregar más campos si es necesario
-        });
-        console.log("PERFIL CREADO", profile);
-        res.send('Perfil creado exitosamente');
-    } catch (error) {
-        if (error.name === 'SequelizeValidationError') {
-            // Si hay errores de validación, se envía un mensaje con los errores
-            const errors = error.errors.map((error) => error.message);
-            res.status(400).send({ errors: errors });
-        } else {
-            // Si hay otro tipo de error, se envía un mensaje genérico de error
-            res.status(500).send('Error al crear el perfil');
-            console.log("ERROR DE CREACIÓN DE PERFIL", error);
-        }
-    }
-});
+// app.post('/user/profile/:id', async (req, res) => {
+//     const { firstName, lastName, age, gender, profileImage } = req.body;
+//     try {
+//         const user = await User.findByPk(req.params.id);
+//         if (!user) {
+//             res.status(404).send('Usuario no encontrado');
+//             return;
+//         }
+//         const image = await imageUser.create({
+//             firstName: firstName,
+//             lastName: lastName,
+//             age: age,
+//             gender: gender,
+//             profileImage: profileImage,
+//             userId: user.id
+//             // Aquí puedes agregar más campos si es necesario
+//         });
+//         console.log("IMAGEN CREADA", image);
+//         res.send('Imagen creada exitosamente');
+//     } catch (error) {
+//         if (error.name === 'SequelizeValidationError') {
+//             // Si hay errores de validación, se envía un mensaje con los errores
+//             const errors = error.errors.map((error) => error.message);
+//             res.status(400).send({ errors: errors });
+//         } else {
+//             // Si hay otro tipo de error, se envía un mensaje genérico de error
+//             res.status(500).send('Error al crear la imagen');
+//             console.log("ERROR DE CREACIÓN DE IMAGEN", error);
+//         }
+//     }
+// });
+
+
 
 
 

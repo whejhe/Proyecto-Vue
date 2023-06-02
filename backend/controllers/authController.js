@@ -1,4 +1,5 @@
-const {User}  = require('../models/user');
+const { Users } = require('../models/user');
+const {Image} = require('../models/imagenUser')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -14,11 +15,17 @@ const register = async (req, res) => {
             email: req.body.email,
             password: hash,
         });
-        const userDB = await User.create(user);
+        // const image =({
+        //     idImage: req.body.idImage,
+        //     imageProfile: req.body.imageProfile
+        // })
+        const userDB = await Users.create(user);
+        // const imageDB = await Image.create(image);
 
         return res.status(200).json({
             message: 'El usuario se ha creado correctamente',
-            userDB
+            userDB,
+            // imageDB
         })
 
     } catch (err) {
@@ -31,30 +38,25 @@ const register = async (req, res) => {
 };
 
 
-
 const login = async (req, res) => {
-    const { email, password } = req.body;
-
     try {
-        // Buscar al usuario en la base de datos
-        const user = (await User.findOne({ where: { email } }));
-        // Si no se encuentra el usuario, enviar un error
-        if (!user) {
-            return res.status(404).json({ message: 'Email o contraseña incorrectosA' });
+        const { email, password } = req.body;
+        if (!(email && password)) {
+            res.status(400).json({ msg: "Todos los campos son requeridos" });
         }
-        // Comparar las contraseñas cifradas
-        const passwordMatch = await bcrypt.compare(password, user.password);
-        // Si las contraseñas no coinciden, enviar un error
-        if (!passwordMatch) {
-            return res.status(404).json({ message: 'Email o contraseña incorrectos' });
+        const user = await Users.findOne({ where: { email: email } });
+        if (user && (await bcrypt.compare(password, user.password))) {
+            //Creo un token
+            delete user.dataValues.password;
+            const token = jwt.sign(user.dataValues, process.env.JWT_SECRET, {
+                expiresIn: "4H",
+            });
+            user.token = token;
+            return res.status(200).json({ token: token });
         }
-        // Generar un token JWT y enviarlo al cliente
-        const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1d' });
-        res.header({ Authorization: token })
-        res.json({ token: token });
+        res.status(400).send("Usuario o contraseña inválidas");
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ message: error.message });
+        console.log(error);
     }
 };
 

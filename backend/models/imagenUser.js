@@ -1,97 +1,38 @@
 const sequelize = require("../models/dbConnection");
 const { Sequelize, DataTypes } = require("sequelize");
+const fs = require("fs");
+const path = require("path");
+
+const defaultImage = fs.readFileSync(path.join(__dirname, "..", "images", "Default.jpg"));
 
 const imageUsers = sequelize.define(
     "imageUsers",
     {
-        id: {
+        idUser: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                notNull: {
-                    msg: 'El nombre de Usuario es obligatorio'
-                },
-                notEmpty: {
-                    msg: 'El nombre del Usuario no puede estar vacio'
-                }
+            foreignkey: true,
+            references: {
+                model: "Users",
+                key: "id"
             }
         },
-
-        email: {
-            type: DataTypes.STRING,
+        idImage: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
-            validate: {
-                notNull: {
-                    msg: 'La direccion de correos es obligatoria'
-                },
-                notEmpty: {
-                    msg: 'El correo no puede estar vacio'
-                },
-                isEmail: {
-                    msg: 'La direccion de correos no es valida'
-                },
-                isLowercase: {
-                    msg: 'El correo debe estar en minusculas'
-                }
-            },
         },
-
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: {
-                    msg: 'La contraseña es obligatoria'
-                },
-                notEmpty: {
-                    msg: 'La contraseña no puede estar vacia'
-                },
-            },
-        },
-
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-
-        age: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
-
-        gender: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: 'other',
-            validate: {
-                isIn: {
-                    args: [['male', 'female', 'other']],
-                }
-            },
-        },
-
-        profileImage: {
+        imageProfile:{
             type: DataTypes.BLOB,
-            allowNull: true,
-        },
+            allowNull: false,
+            defaultValue: defaultImage,
+        }
     }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'imageUsers',
     timestamps: false,
 }
 );
 
+// sequelize.sync({force:true});
 
-module.exports.Users = Users;
+module.exports.imageUsers = imageUsers;

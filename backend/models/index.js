@@ -7,7 +7,8 @@ const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const User = require('./user')
+const User = require('./user');
+const imageUser = require('./imagenUser');
 const db = {};
 
 let sequelize;
@@ -43,3 +44,4 @@ db.Sequelize = Sequelize;
 
 module.exports = db;
 module.exports = User;
+module.exports = imageUser;

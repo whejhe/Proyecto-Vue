@@ -1,4 +1,5 @@
 const  User  = require('../models/user');
+const Image = require('../models/imagenUser')
 
 
 // Ver todos los Usuarios
@@ -32,10 +33,15 @@ const createUser = async (req, res) => {
     const { username, email, password } = req.body;
     try {
         const user = await User.create({ username, email, password });
+        // const imageUser = await imageUser.create({idImage,imageProfile});
         user.username = username;
         user.email = email;
         user.password = password;
+
+        // imageUser.idImage = idImage;
+        // imageUser.imageProfile = imageProfile;        
         res.status(201).json(user);
+        // res.status(201).json(imageUser);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -74,7 +80,22 @@ const updateUser = async (req, res) => {
     }
 };
 
-
+const updateImage = async (req, res) => {
+    const { idImage,imageProfile } = req.body;
+    try{
+        const image = await Image.findByPk({ where: { idImage: idImage } });
+        if(!image){
+            res.status(404).send("No se encontro la imagen");
+        }else{
+            image.imageProfile = imageProfile;
+            await image.save();
+            res.send("Imagen actualizada");
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+};
 
 //Borrar Usuario
 const deleteUser = async (req, res) => {
@@ -98,5 +119,6 @@ module.exports = {
     getUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    updateImage
 };

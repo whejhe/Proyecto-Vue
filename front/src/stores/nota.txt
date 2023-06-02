@@ -1,0 +1,50 @@
+async login(body) {
+      if (localStorage.getItem("token")) {
+        localStorage.removeItem("token");
+      }
+      this.isLogged = false;
+      if (!body.email || !body.password) {
+        toast("Todos los campos son obligatorios", {
+          type: "error",
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+        });
+        return;
+      }
+
+      apiClient
+        .post("login", body)
+        .then((res) => {
+          // console.log("resLogin", res);
+          if (auth() === true) {
+            toast("El usuario ya existe", {
+              type: "error",
+              pauseOnHover: false,
+            });
+            return;
+          }
+          if (res.data.token) {
+            localStorage.setItem("token", res.data.token);
+            // console.log(res.data.token);
+            toast("Login correcto!", {
+              type: "success",
+              pauseOnHover: false,
+              pauseOnFocusLoss: false,
+            });
+            evaluate();
+            router.push("logueadoRegistrado");
+            return res.data.token;
+          }
+        })
+        .catch((err) => {
+          console.log(err.response);
+          if (err.response.status === 400) {
+            toast(err.response.data, {
+              type: "error",
+              pauseOnHover: false,
+              pauseOnFocusLoss: false,
+            });
+            router.push("login");
+          }
+        });
+    },

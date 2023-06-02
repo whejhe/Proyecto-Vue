@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken');
 const user = require('../models/user');
-const dotenv = require('dotenv');
-dotenv.config();
 
 const payload = {
     id: user.id,
@@ -15,6 +13,8 @@ console.log(token);
 
 const verifyToken = (req, res, next) => {
     console.log("Estamos en verifyToken middleware");
+    console.log(req.headers);
+
     // Verifica si la solicitud se realiza a la ruta de registro de usuario, la ruta de inicio de sesión o la ruta de perfil
     if (['/register', '/login', '/profile'].includes(req.path) && req.method === 'POST') {
         next();
@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
         const token = req.headers.authorization;
         try {
             // Verifica si el token de JWT es válido y decodifica los datos de usuario
-            const decoded = jwt.verify(token,secret);
+            const decoded = jwt.verify(token, JWT_SECRET);
             // Almacena los datos de usuario en el objeto `req.user`
             req.user = decoded;
             // Pasa el control al siguiente middleware
@@ -37,4 +37,4 @@ const verifyToken = (req, res, next) => {
 };
 
 
-module.exports = {verifyToken} ;
+export { verifyToken };
